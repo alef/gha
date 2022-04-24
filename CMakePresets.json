@@ -3,9 +3,9 @@
   "configurePresets": [
     {
       "environment": {
-        "VCPKG_ROOT": "C:/vcpkg"
+        "VCPKG_INSTALLATION_ROOT": "C:/vcpkg"
       },
-      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "toolchainFile": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "name": "windows-base",
       "description": "Target Windows with the Visual Studio development environment.",
       "hidden": true,
@@ -15,10 +15,7 @@
       "cacheVariables": {
         "CMAKE_C_COMPILER": "cl.exe",
         "CMAKE_CXX_COMPILER": "cl.exe",
-        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/build-scripts/MSVC.cmake",
-        "CURSES": "False",
-        "LOCALIZE": "False",
-        "TILES": "True"
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/build-scripts/MSVC.cmake"
       },
       "condition": {
         "type": "equals",
