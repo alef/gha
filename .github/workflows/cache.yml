@@ -15,10 +15,6 @@ on:
         description: 'Cache to retrieve'
         default: '1234'
         required: true
-        options:
-          - '1234'
-          - '2345'
-          - '3456'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -36,14 +32,14 @@ jobs:
         run: cmake --preset x64-debug
 
       - name: find the ninja
-        run: find /c/vcpkg/downloads/tools -type d
+        run: find /c/vcpkg/ -type d
         shell: bash
 
       - name: Cache
         uses: actions/cache@v3.0.2
         with:
           # A list of files, directories, and wildcard patterns to cache and restore
-          path: ${{ github.workspace }}
+          path: C:\\vcpkg
           # An explicit key for restoring and saving the cache
           key: ${{ github.event.inputs.CACHE_KEY }}
           # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
