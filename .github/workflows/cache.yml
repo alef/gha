@@ -35,6 +35,10 @@ jobs:
       - name: cmake
         run: cmake --preset x64-debug
 
+      - name: find the ninja
+        run: find /mnt/c/vcpkg /c/vcpkg -type f -name ninja.exe
+        shell: bash
+
       - name: Cache
         uses: actions/cache@v3.0.2
         with:
