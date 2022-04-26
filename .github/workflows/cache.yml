@@ -30,9 +30,7 @@ jobs:
 
       - name: env
         run: |
-          echo "$env:GITHUB_ENV"
-          echo $env:GITHUB_ENV
-          Add-Content "$env:GITHUB_ENV" -Value $env:LOCALAPPDATA
+          Add-Content $env:GITHUB_ENV -Value LOCALAPPDATA
 
       - name: Cache
         uses: actions/cache@v3.0.2
