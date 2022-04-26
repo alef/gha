@@ -2,16 +2,13 @@
   "version": 3,
   "configurePresets": [
     {
-      "environment": {
-        "VCPKG_INSTALLATION_ROOT": "C:/vcpkg"
-      },
-      "toolchainFile": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "name": "windows-base",
       "description": "Target Windows with the Visual Studio development environment.",
       "hidden": true,
       "binaryDir": "${sourceDir}/out/build/${presetName}",
       "installDir": "${sourceDir}/out/install/${presetName}",
       "cacheVariables": {
+        "CMAKE_PROJECT_INCLUDE_BEFORE": "before.cmake",
         "CMAKE_C_COMPILER": "cl.exe",
         "CMAKE_CXX_COMPILER": "cl.exe",
         "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/build-scripts/MSVC.cmake"

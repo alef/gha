@@ -1,0 +1,4 @@
+if (NOT $ENV{VCPKG_INSTALLATION_ROOT} STREQUAL "")
+    set(ENV{VCPKG_ROOT} $ENV{VCPKG_INSTALLATION_ROOT})
+endif()
+set(CMAKE_TOOLCHAIN_FILE $ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake)
