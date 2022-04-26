@@ -32,7 +32,7 @@ jobs:
         uses: actions/cache@v3.0.2
         with:
           # A list of files, directories, and wildcard patterns to cache and restore
-          path: 'C:\\vcpkg'
+          path: ${{ env.LOCALAPPDATA }}/vcpkg/archives
           # An explicit key for restoring and saving the cache
           key: ${{ github.event.inputs.CACHE_KEY }}
           # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
@@ -42,8 +42,3 @@ jobs:
 
       - name: cmake
         run: cmake --preset x64-debug
-
-      - name: find the ninja
-        run: find /c/Users/runneradmin/AppData/Local/vcpkg -name '*.exe'
-        shell: bash
-
