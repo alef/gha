@@ -30,7 +30,7 @@ jobs:
          if: ${{ github.event_name == 'workflow_dispatch' && inputs.tmate_enabled }}
          timeout-minutes: 5
          with:
-          install-dependencies: false
+          install-dependencies: true
 
   # XXX This workflow contains a single job called "build"
   build:
