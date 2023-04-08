@@ -29,6 +29,9 @@ jobs:
          uses: mxschmitt/action-tmate@v3
          if: ${{ github.event_name == 'workflow_dispatch' && inputs.tmate_enabled }}
          timeout-minutes: 5
+         with:
+          install-dependencies: false
+
   # XXX This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
