@@ -11,6 +11,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
+      tmate_enabled:
+        description: 'Enable remote shell'
+        required: true
+        default: false
       CACHE_KEY:
         description: 'Cache to retrieve'
         default: '1234'
@@ -18,7 +22,14 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  interactive:
+    runs-on: ubuntu-latest
+    steps:
+       - name: Interactive Session
+         uses: mxschmitt/action-tmate@v3
+         if: ${{ github.event_name == 'workflow_dispatch' && inputs.tmate_enabled }}
+         timeout-minutes: 5
+  # XXX This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: windows-latest
