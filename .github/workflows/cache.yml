@@ -23,17 +23,18 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   interactive:
-    runs-on: ubuntu-latest
+    runs-on: macos-13
     steps:
        - name: Interactive Session
          uses: mxschmitt/action-tmate@v3.19
          if: ${{ github.event_name == 'workflow_dispatch' && inputs.tmate_enabled }}
-         timeout-minutes: 5
+         timeout-minutes: 15
          with:
           install-dependencies: true
 
   # XXX This workflow contains a single job called "build"
   build:
+    if: ${{ false }} # Disabled for now
     # The type of runner that the job will run on
     runs-on: windows-latest
 
